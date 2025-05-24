@@ -1,7 +1,7 @@
 context:
   name: love2d
   version: 11.5
-  build: ${{ 100 if variant == "latest" else 0}}
+  build: ${{ 100 if variant == "latest" else 0 }}
   string_prefix: ${{ "luajit" if variant == "luajit" else "lua5_" }}
 
 package:
