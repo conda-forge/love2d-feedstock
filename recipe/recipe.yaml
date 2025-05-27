@@ -17,6 +17,7 @@ source:
       - patches/0003-install-binaries-in-right-locations.patch
       - patches/0004-find-correct-openal-library-on-windows.patch
       - patches/0005-fix-ssize_t-usage.patch
+      - patches/0006-use-lua51-to-find-luajit-on-windows.patch
 
 build:
   number: ${{ build|int }}
