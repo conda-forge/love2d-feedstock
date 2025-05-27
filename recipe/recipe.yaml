@@ -23,7 +23,7 @@ build:
   string: ${{ string_prefix }}_h${{ hash }}_${{ build }}
   skip: 
     # Skip lua51 on windows because lua51 is not available on windows
-    - ${{ variant == "lua51" and win }}
+    - variant == "lua51" and win
 
 requirements:
   build:
