@@ -85,12 +85,6 @@ description = "Build love2d-feedstock with variant win_64_variantlatest directly
 [tasks."inspect-win_64_variantlatest"]
 cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/win_64_variantlatest.yaml"
 description = "List contents of love2d-feedstock packages built for variant win_64_variantlatest"
-[tasks."build-win_64_variantlua51"]
-cmd = "rattler-build build --recipe recipe -m .ci_support/win_64_variantlua51.yaml"
-description = "Build love2d-feedstock with variant win_64_variantlua51 directly (without setup scripts)"
-[tasks."inspect-win_64_variantlua51"]
-cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/win_64_variantlua51.yaml"
-description = "List contents of love2d-feedstock packages built for variant win_64_variantlua51"
 [tasks."build-win_64_variantluajit"]
 cmd = "rattler-build build --recipe recipe -m .ci_support/win_64_variantluajit.yaml"
 description = "Build love2d-feedstock with variant win_64_variantluajit directly (without setup scripts)"

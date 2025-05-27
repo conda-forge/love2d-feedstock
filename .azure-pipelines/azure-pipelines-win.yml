@@ -11,9 +11,6 @@ jobs:
       win_64_variantlatest:
         CONFIG: win_64_variantlatest
         UPLOAD_PACKAGES: 'True'
-      win_64_variantlua51:
-        CONFIG: win_64_variantlua51
-        UPLOAD_PACKAGES: 'True'
       win_64_variantluajit:
         CONFIG: win_64_variantluajit
         UPLOAD_PACKAGES: 'True'
