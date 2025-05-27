@@ -1,6 +1,8 @@
 context:
   name: love2d
   version: 11.5
+  build: ${{ 100 if variant == "latest" else 0 }}
+  string_prefix: ${{ "luajit" if variant == "luajit" else "lua5_" }}
 
 package:
   name: ${{ name }}
@@ -15,9 +17,14 @@ source:
       - patches/0003-install-binaries-in-right-locations.patch
       - patches/0004-find-correct-openal-library-on-windows.patch
       - patches/0005-fix-ssize_t-usage.patch
+      - patches/0006-use-lua51-to-find-luajit-on-windows.patch
 
 build:
-  number: 0
+  number: ${{ build|int }}
+  string: ${{ string_prefix }}_h${{ hash }}_${{ build }}
+  skip: 
+    # Skip lua51 on windows because lua51 is not available on windows
+    - variant == "lua51" and win
 
 requirements:
   build:
@@ -36,7 +43,15 @@ requirements:
     - zlib
     - libogg
     - mpg123
-    - lua
+    - if: variant == "latest"
+      then: 
+        - lua
+    - if: variant == "lua51"
+      then: 
+        - lua 5.1.*
+    - if: variant == "luajit"
+      then: 
+        - luajit-openresty
     - if: linux
       then:
         - libgl-devel
