@@ -1,7 +1,7 @@
 context:
   name: love2d
   version: 11.5
-  build: ${{ 100 if variant == "latest" else 0 }}
+  build: 1
   string_prefix: ${{ "luajit" if variant == "luajit" else "lua5_" }}
 
 package:
@@ -22,7 +22,7 @@ source:
 build:
   number: ${{ build|int }}
   string: ${{ string_prefix }}_h${{ hash }}_${{ build }}
-  skip: 
+  skip:
     # Skip lua51 on windows because lua51 is not available on windows
     - variant == "lua51" and win
 
@@ -44,19 +44,19 @@ requirements:
     - libogg
     - mpg123
     - if: variant == "latest"
-      then: 
+      then:
         - lua
     - if: variant == "lua51"
-      then: 
+      then:
         - lua 5.1.*
     - if: variant == "luajit"
-      then: 
+      then:
         - luajit-openresty
     - if: linux
       then:
         - libgl-devel
         - libglx-devel
-  run_exports: 
+  run_exports:
     - ${{ pin_subpackage(name) }}
 
 tests:
